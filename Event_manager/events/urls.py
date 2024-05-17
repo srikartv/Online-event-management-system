@@ -29,4 +29,6 @@ urlpatterns = [
 	path('admin_approval', views.admin_approval, name='admin_approval'),
 	path('venue_events/<venue_id>', views.venue_events, name='venue-events'),
 	path('show_event/<event_id>', views.show_event, name='show-event'),
+    path('feedback', views.feedback, name='feedback'),
+    path('contact_us',views.contact_us, name='contact_us'),
 ]

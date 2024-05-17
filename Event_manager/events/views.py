@@ -343,6 +343,11 @@ def all_events(request):
 	return render(request, 'events/event_list.html', 
 		{'event_list': event_list})
 
+def feedback(request):
+	return render(request,'events/feedback.html',{'feedback': feedback})
+
+def contact_us(request):
+	return render(request,'events/Contact_page.html',{'contact_us': contact_us})
 
 def home(request, year=datetime.now().year, month=datetime.now().strftime('%B')):
 	name = "John"

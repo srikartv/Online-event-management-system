@@ -1,60 +1,112 @@
 {% extends 'events/base.html' %}
 
 {% block content %}
-	<center>
-	<h2>Welcome to <br/><h1><i><b>Utsav!</b></i></h1></h2><br/>
-	<h3>Plan your events with us</h3>	
-</center>
-	<h3>Events This Month...</h3>
 
-	{% if event_list %}
-		{% for event in event_list %}
-		<div class="card">
-  <div class="card-header">
-    {{ event }}
+<div class="row">
+  <div class="col-md-15 welcome" style="background-image: url('/media/images/img2.jpeg'); background-size: cover; background-position: center; background-attachment: fixed;">
+    <center style="background-color: rgba(0, 0, 0, 0); padding: 100px 0; color: aliceblue;">
+      <h2>Welcome to <br/><h1><i><b>Utsav!</b></i></h1></h2><br/>
+      <h3>Plan your events with us</h3> 
+    </center>
   </div>
-  <div class="card-body">
-    <h5 class="card-title">Venue: {{ event.venue }}</h5>
-    <p class="card-text">
-    	<ul>
-<li>Date: {{ event.event_date }}</li>
-
-<li>Venue Website: {{ event.venue.web }}</li>
-<li>Manager: {{ event.manager }}</li>
-<li>Description: {{ event.description }}</li>
-	<li>Attendees:<br/>
-	{% for user in event.attendees.all %}
-{{ user }}<br/>
-	{% endfor %}
-	</li>
-	</ul>
-
-
-
-    </p>
-  </div>
-  {% if user.is_authenticated %}
-    {% if user == event.manager %}
-      <div class="card-footer text-muted">
-        
-        <a href="{% url 'update-event' event.id %}" class="btn btn-outline-secondary btn-sm">Update Event</a>
-
-        <a href="{% url 'delete-event' event.id %}" class="btn btn-outline-danger btn-sm">Delete Event</a>
-        
-      </div>
-    {% endif %}  
-  {% endif %}
 </div>
-		<br/>
-		{% endfor %}
+<br><br>
 
-	{% else %}
-	Sorry...There are no events this month...
-	{% endif %}
+<div class="container">
+  <div class="row">
 
-	<center>
-	<br/><br/><br/><br/>
-	Copyright (c) {{ current_year }}
+    <div class="col-md-6 about-image" id="about">
+      <img src="/media/images/hall2.jpg" alt="About Us Image" class="img-fluid">
+    </div><br>
+    <div class="col-md-6 about-text">
+      <h2 >About Us</h2>
+      <p>
+        Utsav appears to be a comprehensive event management platform designed to streamline the process of organizing events. With features that allow users to create events, send out invitations, and monitor attendance, it aims to simplify the complexities often associated with event planning. The emphasis on a user-friendly interface suggests that the platform is accessible to individuals regardless of their technical expertise, making it a potentially valuable tool for both personal and professional event management. By focusing on reducing the stress of event planning and enhancing efficiency, Utsav could be a significant asset in ensuring the success of various events. It's clear that such platforms are becoming increasingly important in today's fast-paced world where the demand for seamless event execution continues to grow.
+      </p>
+      <a href="about-us.html" class="btn btn-dark">Learn More About Us</a>
+    </div>
+  </div>
+</div><br><br>
 
-	</center>
+<section class="our-services">
+  <h2 >Our Services</h2>
+  <div class="row">
+
+    <div class="col-md-4 service-item">
+      <img src="/media/images/event1.jpeg" alt="Service 1 Image" class="img-fluid"><br>
+      <br><h3>Wedding Event</h3>
+      <p>Weddings are a grand celebration of love and commitment, and planning such an event can be as thrilling as it is daunting. With a myriad of details to consider, from selecting the perfect venue to coordinating with various vendors for decor, catering, and entertainment, the process requires meticulous attention. Fortunately, there are numerous resources available to assist couples in orchestrating their dream wedding. Comprehensive platforms offer a plethora of options for venues and vendors, ensuring that every aspect of the wedding, be it a traditional ceremony or a modern festivity, is tailored to the couple's vision. Moreover, professional wedding planners can take the reins, transforming wedding aspirations into a beautifully realized event, making the journey to the altar both memorable and stress-free. Whether it's an intimate gathering or a lavish affair, the essence of a wedding event lies in its ability to reflect the unique story and style of the couple, creating an unforgettable milestone in their lives.</p>
+      <p><b>Cost:</b> $100(base price)</p>
+    </div>
+
+    <div class="col-md-4 service-item">
+      <img src="/media/images/event2.jpg" alt="Service 2 Image" class="img-fluid"><br>
+      <br><h3>Seminars/Talk shows</h3>
+      <p>Seminars and talk shows are vital platforms for the exchange of ideas, learning, and entertainment. They can range from serious academic discussions to light-hearted and engaging public dialogues. For instance, TEDxGateway, known as India's largest ideas conference, offers a blend of thought-provoking talks and inspiring performances. Similarly, various conferences across India provide opportunities for professionals and academics to present their research and network with peers. The distinction between a seminar and a talk show lies in their format and content; seminars are typically more formal and focused on in-depth topics, while talk shows tend to be more entertaining and broad-ranging. As we move forward, themes such as business innovation in the digital era and strategies for success in the stock market are trending for upcoming events. These gatherings not only foster knowledge sharing but also encourage community building and professional development.</p>
+      <p><b>Cost:</b> $200(base price)</p>
+    </div>
+
+    <div class="col-md-4 service-item">
+      <img src="/media/images/event3.jpg" alt="Service 3 Image" class="img-fluid"><br>
+      <br><h3>Parties</h3>
+      <p>Parties play a pivotal role in the democratic process, serving as a bridge between the electorate and the government. In India, the political landscape is vibrant and diverse, with a multitude of parties that cater to various segments of society. The Election Commission of India maintains a comprehensive list of national, state, and unrecognized parties, complete with their symbols and addresses, ensuring transparency and organization in the political domain. Maharashtra, being one of the most populous states, has a dynamic political scene characterized by a mix of national and regional parties, reflecting the state's diverse socio-political fabric. Additionally, Mumbai, the bustling capital of Maharashtra, is known for its vibrant social scene, hosting a variety of party venues that cater to different tastes and occasions. Whether it's the political gatherings that shape the future of the nation or the social events that bring people together, parties are an integral part of India's cultural and political ethos.</p>
+      <p><b>Cost:</b> $300(base price)</p>
+    </div>
+
+    </div>
+</section><br>
+<section class="gallery" id="gallery">
+  <h2>Gallery</h2>
+  <div class="row">
+
+    <div class="col-md-4 gallery-item">
+      <img src="/media/images/event1.jpeg" alt="Past Event 1 Image" class="img-fluid">
+      <p>Date: September 01 2019 (Saturday) | Time: 03:00 AM</p>
+      <p>Event Name: CountDown Event</p>
+      <p>Place: 32-B, Envato St, Themeforest Ave, CA</p>
+    </div>
+
+    <div class="col-md-4 gallery-item">
+      <img src="/media/images/event2.jpg" alt="Past Event 2 Image" class="img-fluid">
+      <p>Date: October 01 2019 (Tuesday) | Time: 08:00 AM</p>
+      <p>Event Name: (Replace with Event Name)</p>
+      <p>Place: 32-B, Envato St, Themeforest Ave, CA</p>
+    </div>
+    <div class="col-md-4 gallery-item">
+      <img src="/media/images/hall2.jpg" alt="Past Event 2 Image" class="img-fluid">
+      <p>Date: October 01 2019 (Tuesday) | Time: 08:00 AM</p>
+      <p>Event Name: (Replace with Event Name)</p>
+      <p>Place: 32-B, Envato St, Themeforest Ave, CA</p>
+    </div>
+    
+    <div class="col-md-4 gallery-item">
+      <img src="/media/images/event1.jpeg" alt="Past Event 1 Image" class="img-fluid">
+      <p>Date: September 01 2019 (Saturday) | Time: 03:00 AM</p>
+      <p>Event Name: CountDown Event</p>
+      <p>Place: 32-B, Envato St, Themeforest Ave, CA</p>
+    </div>
+
+    <div class="col-md-4 gallery-item">
+      <img src="/media/images/event2.jpg" alt="Past Event 2 Image" class="img-fluid">
+      <p>Date: October 01 2019 (Tuesday) | Time: 08:00 AM</p>
+      <p>Event Name: (Replace with Event Name)</p>
+      <p>Place: 32-B, Envato St, Themeforest Ave, CA</p>
+    </div>
+    <div class="col-md-4 gallery-item">
+      <img src="/media/images/hall2.jpg" alt="Past Event 2 Image" class="img-fluid">
+      <p>Date: October 01 2019 (Tuesday) | Time: 08:00 AM</p>
+      <p>Event Name: (Replace with Event Name)</p>
+      <p>Place: 32-B, Envato St, Themeforest Ave, CA</p>
+    </div>
+  </div>
+</section>
+
+
+
+<center>
+  <br/><br/><br/><br/>
+  <div style="background-color: black; color: #ffffff;">Copyright (c) {{ current_year }}</div>
+  
+</center>
+
 {% endblock %}
